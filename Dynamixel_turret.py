@@ -78,3 +78,14 @@ def main():
         print("Position of dxl ID: %d is now: %d " %
               (motor1.id, motor1.get_present_position()))
         bool_test = user_input()
+
+
+try:
+    main()
+
+except KeyboardInterrupt:
+    time.sleep(0.05)
+    motor1.set_moving_speed(0)
+    motor2.set_moving_speed(0)
+    motor1.disable_torque()
+    motor2.disable_torque()
