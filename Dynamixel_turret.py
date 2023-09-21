@@ -44,11 +44,11 @@ def remap(x, oMin, oMax, nMin, nMax):
     return result
 
 
-motor1 = Ax12(1)
+motor1 = Ax12(1)  # Yaw
 motor1.set_max_voltage_limit(160)
 motor1.enable_torque()
 motor1.set_torque_limit(1023)
-motor2 = Ax12(2)
+motor2 = Ax12(2)  # Pitch
 motor2.set_max_voltage_limit(160)
 motor2.enable_torque()
 motor2.set_torque_limit(1023)
@@ -71,12 +71,12 @@ def main():
     while bool_test:
 
         print("\nPosition of dxl ID: %d is %d " %
-              (motor1.id, motor1.get_present_position()))
+              (motor2.id, motor2.get_present_position()))
         # desired angle input
         input_pos = int(input("Goal Possition: "))
         motor1.set_goal_position(input_pos)
         print("Position of dxl ID: %d is now: %d " %
-              (motor1.id, motor1.get_present_position()))
+              (motor2.id, motor2.get_present_position()))
         bool_test = user_input()
 
 
