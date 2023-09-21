@@ -52,7 +52,7 @@ motor2 = Ax12(2)  # Pitch
 motor2.set_max_voltage_limit(160)
 motor2.enable_torque()
 motor2.set_torque_limit(1023)
-#Motor 2 limit needs to be set at 150
+# Motor 2 limit needs to be set at 150
 
 
 def user_input():
@@ -81,7 +81,6 @@ def main():
         bool_test = user_input()
 
 
-
 try:
     @sio.event
     def connect():
@@ -103,14 +102,13 @@ try:
     motor2.disable_torque()
 
     @sio.on('inertial-order')
-    def on_message(yaw,pitch):
-        m1Yaw: remap(yaw,-180,180,0,1023)
-        m2Pitch: remap(pitch,-180,180,150,1023)
-        motor1.set_goal_position (m1Yaw)
-        motor2.set_goal_position (m2Pitch)
-    
+    def on_message(yaw, pitch):
+        m1Yaw: remap(yaw, -180, 180, 0, 1023)
+        m2Pitch: remap(pitch, -180, 180, 150, 1023)
+        motor1.set_goal_position(m1Yaw)
+        motor2.set_goal_position(m2Pitch)
 
-    sio.connect('http://192.168.2.12:3000')
+    sio.connect('http://192.168.2.13:3000')
     sio.wait()
 
 except KeyboardInterrupt:
