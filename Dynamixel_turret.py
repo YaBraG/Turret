@@ -67,14 +67,14 @@ def main():
     """ sets goal position based on user input """
     bool_test = True
     speed = int(input("Motor Speed: "))
-    motor1.set_moving_speed(speed)
+    motor2.set_moving_speed(speed)
     while bool_test:
 
         print("\nPosition of dxl ID: %d is %d " %
               (motor2.id, motor2.get_present_position()))
         # desired angle input
         input_pos = int(input("Goal Possition: "))
-        motor1.set_goal_position(input_pos)
+        motor2.set_goal_position(input_pos)
         print("Position of dxl ID: %d is now: %d " %
               (motor2.id, motor2.get_present_position()))
         bool_test = user_input()
