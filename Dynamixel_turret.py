@@ -81,6 +81,8 @@ try:
         m2Pitch = remap(pitch, -180, 180, 150, 1023)
         motor1.set_goal_position(m1Yaw)
         motor2.set_goal_position(m2Pitch)
+        print("Motor 1 position: %d " %
+              (motor1.get_present_position()))
 
     sio.connect('http://192.168.2.13:3000')
     sio.wait()
