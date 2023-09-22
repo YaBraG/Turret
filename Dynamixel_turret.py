@@ -70,10 +70,10 @@ try:
     def disconnect():
         print('disconnected from server')
         time.sleep(0.5)
-    motor1.set_moving_speed(0)
-    motor2.set_moving_speed(0)
-    motor1.disable_torque()
-    motor2.disable_torque()
+        motor1.set_moving_speed(0)
+        motor2.set_moving_speed(0)
+        motor1.disable_torque()
+        motor2.disable_torque()
 
     @sio.on('inertial-order')
     def on_message(yaw, pitch):
