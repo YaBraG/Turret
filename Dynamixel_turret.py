@@ -55,32 +55,6 @@ motor2.set_torque_limit(1023)
 # Motor 2 limit needs to be set at 150
 
 
-def user_input():
-    """Check to see if user wants to continue"""
-    ans = input('Continue? : y/n ')
-    if ans == 'n':
-        return False
-    else:
-        return True
-
-
-def main():
-    """ sets goal position based on user input """
-    bool_test = True
-    speed = int(input("Motor Speed: "))
-    motor2.set_moving_speed(speed)
-    while bool_test:
-
-        print("\nPosition of dxl ID: %d is %d " %
-              (motor2.id, motor2.get_present_position()))
-        # desired angle input
-        input_pos = int(input("Goal Possition: "))
-        motor2.set_goal_position(input_pos)
-        print("Position of dxl ID: %d is now: %d " %
-              (motor2.id, motor2.get_present_position()))
-        bool_test = user_input()
-
-
 try:
     @sio.event
     def connect():
