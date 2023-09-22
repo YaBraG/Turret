@@ -77,8 +77,8 @@ try:
 
     @sio.on('inertial-order')
     def on_message(yaw, pitch):
-        m1Yaw = remap(yaw, -180, 180, 0, 1023)
-        m2Pitch = remap(pitch, -180, 180, 150, 1023)
+        m1Yaw = round(remap(yaw, -180, 180, 0, 1023))
+        m2Pitch = round(remap(pitch, -180, 180, 150, 1023))
         motor1.set_goal_position(m1Yaw)
         motor2.set_goal_position(m2Pitch)
         print("Motor 1 position: %d " %
